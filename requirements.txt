@@ -89,7 +89,6 @@ python-dateutil==2.8.2
 python-jwt==2.0.1
 pytz==2022.1
 pyvis==0.2.1
-pywin32==304
 pyzmq==22.3.0
 regex==2021.11.10
 relativeNeighborhoodGraph==0.0.1
