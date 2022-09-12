@@ -1,5 +1,5 @@
 from flask import Flask, redirect,render_template, request
-from api import api
+from . import api
 from backend import controller as c
 app = Flask (__name__)
 app.template_folder = "frontend/templates"
