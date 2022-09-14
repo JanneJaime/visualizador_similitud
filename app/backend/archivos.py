@@ -1,6 +1,6 @@
 import xlrd
 import os
-path = os.path.dirname(__file__)+'\\data\\'
+path = os.path.dirname(__file__)+'/data/'
 
 """
     - Leer excel de palabras permitidas
