@@ -2,7 +2,7 @@ from . import nlp as nlp
 from app.api import routes as r
 import json
 import numpy as np
-from backend.base_datos import BaseDatos
+from app.backend.base_datos import BaseDatos
 from . import similitud
 from . import archivos
 from . import grafos
