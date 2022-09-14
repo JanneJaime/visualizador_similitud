@@ -1,6 +1,6 @@
 from flask import Flask, redirect,render_template, request
 from . import api
-from . import controller as c
+from .backend import controller as c
 app = Flask (__name__)
 app.template_folder = "frontend/templates"
 app.static_folder = "frontend/static"
