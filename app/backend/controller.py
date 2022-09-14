@@ -1,5 +1,5 @@
 from . import nlp as nlp
-from api.routes import _api_get_
+from .api.routes import _api_get_
 import json
 import numpy as np
 from backend.base_datos import BaseDatos
