@@ -1,5 +1,5 @@
 from . import nlp as nlp
-from .api.routes import _api_get_
+import api.routes as r
 import json
 import numpy as np
 from backend.base_datos import BaseDatos
@@ -79,7 +79,7 @@ def search_bd(query):
     return [document.to_dict() for document in documents ],q.to_dict()
 
 def search_api(query):
-    documents = _api_get_(query)[0].json
+    documents = r._api_get_(query)[0].json
     if documents.get('msg'):
         print("Error %s"%documents)    
         return False
