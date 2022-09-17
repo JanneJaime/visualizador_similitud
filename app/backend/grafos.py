@@ -9,12 +9,13 @@ import heapq
 matriz = np.loadtxt(os.path.dirname(__file__)+'/data/matriz_total.txt')
 
 def matrizsubyacente(submatriz, query_bd):#
-    ms = np.identity(submatriz.shape[0])
+    tam = len(submatriz)
+    ms = np.identity(tam)
     temp = []
-    tam = submatriz.shape[0]
-    for x in range(submatriz.shape[0]):
-        for y in range(x+1,submatriz.shape[0]):
-            if x > tam or y > tam:
+    size_matriz = matriz.shape[0]
+    for x in range(tam):
+        for y in range(x+1,tam):
+            if x > size_matriz or y > size_matriz:
                 continue
             item = matriz.item((submatriz[x]['id'],submatriz[y]['id']))
             ms[x][y] = item
@@ -30,9 +31,9 @@ def matrizsubyacente(submatriz, query_bd):#
     ms = returnRNG.returnRNG(ms)
     resp = {'nodos': submatriz, 'enlaces':[]}
     
-    for x1 in range(submatriz.shape[0]):
-        for x2 in range(submatriz.shape[0]):
-            if x1 > tam or x2 > tam:
+    for x1 in range(tam):
+        for x2 in range(tam):
+            if x1 > size_matriz or x2 > size_matriz:
                 continue
             if ms[x1][x2] > 0:
                 resp['enlaces'].append({'source':submatriz[x1]['id'],'target':submatriz[x2]['id']})
