@@ -34,6 +34,8 @@ def matrizsubyacente(submatriz, query_bd):#
     for x1 in range(tam):
         for x2 in range(tam):
             if ms[x1][x2] > 0:
+                if submatriz[x1]['id'] > size_matriz or submatriz[x2]['id']:
+                    continue
                 resp['enlaces'].append({'source':submatriz[x1]['id'],'target':submatriz[x2]['id']})
     return resp
 
