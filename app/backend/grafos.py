@@ -9,26 +9,31 @@ import heapq
 matriz = np.loadtxt(os.path.dirname(__file__)+'/data/matriz_total.txt')
 
 def matrizsubyacente(submatriz, query_bd):#
-    ms = np.identity(len(submatriz))
+    ms = np.identity(submatriz.shape[0])
     temp = []
-    for x in range(len(submatriz)):
-        for y in range(x+1,len(submatriz)):
+    tam = submatriz.shape[0]
+    for x in range(submatriz.shape[0]):
+        for y in range(x+1,submatriz.shape[0]):
+            if x > tam or y > tam:
+                continue
             item = matriz.item((submatriz[x]['id'],submatriz[y]['id']))
             ms[x][y] = item
             ms[y][x] = item
             temp.append(item)#
     
-    ids = [i['id'] for i in submatriz]#
-    ms1 = pd.DataFrame(
-        ms, columns= ids, index=ids
-    )#
-    function_exprimental(ms1,len(submatriz),query_bd,np.array(temp))#
+    # ids = [i['id'] for i in submatriz]#
+    # ms1 = pd.DataFrame(
+    #     ms, columns= ids, index=ids
+    # )#
+    # function_exprimental(ms1,len(submatriz),query_bd,np.array(temp))#
     
     ms = returnRNG.returnRNG(ms)
     resp = {'nodos': submatriz, 'enlaces':[]}
     
-    for x1 in range(len(submatriz)):
-        for x2 in range(len(submatriz)):
+    for x1 in range(submatriz.shape[0]):
+        for x2 in range(submatriz.shape[0]):
+            if x1 > tam or x2 > tam:
+                continue
             if ms[x1][x2] > 0:
                 resp['enlaces'].append({'source':submatriz[x1]['id'],'target':submatriz[x2]['id']})
     return resp
