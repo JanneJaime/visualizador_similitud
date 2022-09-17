@@ -1,1 +1,1 @@
-gunicorn --bind=0.0.0.0 --timeout 600 app.main:app
+pip install gdown && cd app/backend/data && gdown --id 16T9YqzUABXrFGgAuF2e1wo7tp3QIG70s && cd ../../../  && gunicorn --bind=0.0.0.0 --timeout 600 app.main:app

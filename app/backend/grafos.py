@@ -15,7 +15,7 @@ def matrizsubyacente(submatriz, query_bd):#
     size_matriz = matriz.shape[0]
     for x in range(tam):
         for y in range(x+1,tam):
-            if submatriz[x] > size_matriz or submatriz[y] > size_matriz:
+            if submatriz[x]['id'] > size_matriz or submatriz[y]['id'] > size_matriz:
                 continue
             item = matriz.item((submatriz[x]['id'],submatriz[y]['id']))
             ms[x][y] = item
